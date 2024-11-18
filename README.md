@@ -225,3 +225,97 @@ VALUES
 (15, 15, 15, 8, 1280.00, '2024-02-25');
 ```
 Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/pesanan.sql
+
+# Data Query Language (DQL)
+## Menampilkan bahan baku berdasarkan stok <=100
+``` sql
+SELECT Nama_bahan_baku, Kategori,Stok, Status_stok
+FROM Bahan_baku
+WHERE Stok<=100;
+```
+| Nama_bahan_baku    | Kategori       | Stok | Status_stok |
+|---------------------|----------------|------|-------------|
+| Grafit             | Bahan Khusus   | 100  | Tersedia    |
+| Serbuk Aluminium   | Logam          | 100  | Tersedia    |
+| Emas Serbuk        | Logam Mulia    | 50   | Tersedia    |
+| Nikel              | Logam          | 100  | Tersedia    |
+| Magnesium          | Logam          | 100  | Tersedia    |
+
+## Menampilkan informasi pelanggan dan pesanan produk
+``` sql
+SELECT 
+    P.Nama_pelanggan,         -- Menampilkan nama pelanggan
+    Pes.Jumlah,               -- Menampilkan jumlah produk yang dipesan
+    Pr.Nama_Produk,           -- Menampilkan nama produk yang dipesan
+    Pr.Harga_jual             -- Menampilkan harga jual produk tersebut
+FROM 
+    Pelanggan P               -- Mengambil data dari tabel Pelanggan, disingkat 'P'
+INNER JOIN 
+    Pesanan Pes               -- Menggabungkan dengan tabel Pesanan
+    ON P.Id_pelanggan = Pes.Id_pelanggan  -- Kunci gabungan: Id_pelanggan
+INNER JOIN 
+    PRODUKSI Pr               -- Menggabungkan dengan tabel PRODUKSI
+    ON Pes.Id_produk = Pr.Id_produk;      -- Kunci gabungan: Id_produk
+```
+| Nama_pelanggan    | Jumlah | Nama_Produk | Harga_jual |
+|--------------------|--------|-------------|------------|
+| Andi Wijaya       | 3      | Widget A    | 100.00     |
+| Budi Santoso      | 5      | Widget B    | 200.00     |
+| Citra Lestari     | 2      | Gadget X    | 150.00     |
+| Dewi Agustina     | 1      | Widget C    | 250.00     |
+| Eko Prasetyo      | 4      | Gizmo Y     | 300.00     |
+| Fitri Handayani   | 3      | Sensor Z    | 120.00     |
+| Gilang Saputra    | 1      | Widget D    | 180.00     |
+| ...               | ...    | ...         | ...        |
+
+## Menampilkan Produk dengan pendapatan paling tinggi
+``` sql
+SELECT
+	Pr.Id_produk,
+	Pr.Nama_produk,
+	Sum(Pes.Jumlah * Pr.Harga_jual) AS Total_pendapatan
+FROM Produksi Pr
+INNER JOIN 
+	Pesanan Pes 
+	ON Pr.Id_produk = Pes.Id_produk
+GROUP BY 
+	Pr.Id_produk, Pr.Nama_produk
+ORDER BY 
+	Total_pendapatan DESC;
+```
+| Id_produk | Nama_produk       | Total_pendapatan |
+|-----------|-------------------|------------------|
+| 49        | Gadget Ultimate   | 4550.00          |
+| 68        | Gizmo Pro         | 4340.00          |
+| 41        | Gadget Max        | 3600.00          |
+| 100       | Gadget Nova+      | 3600.00          |
+| 76        | Gizmo Storm       | 3540.00          |
+| 33        | Gadget Prime      | 2750.00          |
+| 92        | Gadget Orbit      | 2520.00          |
+| ...       | ...               | ...              |
+
+## Menampilkan produk paling laris
+``` sql
+SELECT 
+	Pr.Id_Produk,
+	Pr.Nama_produk,
+	Pes.Jumlah
+FROM Produksi Pr
+INNER JOIN
+	Pesanan Pes
+	ON Pr.Id_produk = Pes.Id_Produk
+ORDER BY
+	Pes.Jumlah DESC;
+```
+| Id_Produk | Nama_produk   | Jumlah |
+|-----------|---------------|--------|
+| 12        | Komponen B1   | 10     |
+| 30        | Widget X      | 10     |
+| 27        | Komponen F4   | 8      |
+| 15        | Sensor Lite   | 8      |
+| 37        | Gizmo Eco     | 8      |
+| 54        | Komponen X1   | 8      |
+| ...       | ...           | ...    |
+
+
+
