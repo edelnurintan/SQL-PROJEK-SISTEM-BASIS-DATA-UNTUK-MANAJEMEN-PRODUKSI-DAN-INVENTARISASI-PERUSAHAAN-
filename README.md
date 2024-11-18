@@ -97,4 +97,131 @@ VALUES
 (14, 'Sensor Pro', 200.00, 110.00, 150, 'Sensor', '10x5x3', 0.5, 'Pro Edition', 'Pra-Produksi', '2024-07-20'),
 (15, 'Sensor Lite', 80.00, 50.00, 250, 'Sensor', '8x4x2', 0.35, 'Lite Edition', 'Sudah Dirilis', '2023-08-25');
 ```
-Data selebihnya dapat diakses pada link ini 
+Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/Produksi.sql
+
+## Insert Data Kedalam Tabel Bahan Baku
+``` sql
+INSERT INTO Bahan_baku (Id_bahan_baku, Nama_bahan_baku, Stok, Harga_beli, Kategori, Satuan, Dimensi_cm, Berat_kg, Status_stok, Tanggal_masuk)
+VALUES
+(1, 'Plastik ABS', 500, 20.00, 'Plastik', 'Kg', '10x10x2', 1.2, 'Tersedia', '2023-01-01'),
+(2, 'Besi Lembaran', 300, 50.00, 'Logam', 'Kg', '50x30x0.2', 5.0, 'Tersedia', '2023-01-15'),
+(3, 'Kabel Listrik', 1000, 5.00, 'Elektronik', 'Meter', '100x1x1', 0.05, 'Tersedia', '2023-02-10'),
+(4, 'Tembaga Murni', 200, 80.00, 'Logam', 'Kg', '20x10x0.5', 2.0, 'Tersedia', '2023-02-25'),
+(5, 'Kain Wol', 600, 15.00, 'Tekstil', 'Meter', '200x100x0.1', 0.3, 'Tersedia', '2023-03-01'),
+(6, 'Serat Karbon', 250, 100.00, 'Komposit', 'Lembar', '40x30x0.1', 0.6, 'Tersedsia', '2023-03-15'),
+(7, 'Silikon', 700, 12.00, 'Bahan Kimia', 'Kg', '30x30x1', 0.8, 'Tersedia', '2023-04-10'),
+(8, 'Karet Alam', 500, 25.00, 'Bahan Karet', 'Kg', '20x20x1', 1.0, 'Tersedia', '2023-04-20'),
+(9, 'Aluminium Lembaran', 300, 40.00, 'Logam', 'Kg', '50x50x0.1', 3.5, 'Tersedia', '2023-05-01'),
+(10, 'Minyak Pelumas', 400, 30.00, 'Cairan', 'Liter', '-', 1.0, 'Tersedia', '2023-05-15'),
+(11, 'Fiber Optik', 1000, 2.00, 'Elektronik', 'Meter', '-', 0.02, 'Tersedia', '2023-06-01'),
+(12, 'Timah', 150, 90.00, 'Logam', 'Kg', '15x15x1', 1.5, 'Tersedia', '2023-06-20'),
+(13, 'Resin Epoxy', 300, 60.00, 'Komposit', 'Liter', '-', 0.5, 'Tersedia', '2023-07-05'),
+(14, 'Plat Baja', 500, 75.00, 'Logam', 'Kg', '30x20x0.5', 4.0, 'Tersedia', '2023-07-15'),
+(15, 'Kertas', 800, 0.10, 'Kertas', 'Lembar', '30x21x0.1', 0.01, 'Tersedia', '2023-08-01'),
+(16, 'Cat Akrilik', 200, 40.00, 'Kimia', 'Liter', '-', 0.9, 'Tersedia', '2023-08-10'),
+(17, 'Kaca Lembaran', 300, 55.00, 'Kaca', 'Lembar', '40x40x0.2', 2.0, 'Tersedia', '2023-08-20'),
+(18, 'Polycarbonate', 450, 35.00, 'Plastik', 'Kg', '50x50x0.3', 1.8, 'Tersedia', '2023-09-01'),
+(19, 'Aluminium Batangan', 250, 45.00, 'Logam', 'Batang', '200x5x5', 6.0, 'Tersedia', '2023-09-15'),
+(20, 'Seng', 400, 20.00, 'Logam', 'Kg', '60x60x0.1', 2.5, 'Tersedia', '2023-09-25'),
+(21, 'Karton Tebal', 600, 2.00, 'Kertas', 'Lembar', '30x21x0.3', 0.05, 'Tersedia', '2023-10-01'),
+(22, 'Perekat Industri', 150, 22.00, 'Kimia', 'Liter', '-', 0.6, 'Tersedia', '2023-10-05'),
+```
+Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/Bahan%20baku.sql
+
+## Insert Data Kedalam Tabel Pemasok
+``` sql
+INSERT INTO Pemasok (Id_Pemasok, Nama_Pemasok, Alamat, Kontak)
+VALUES
+(1, 'PT. Logam Makmur', 'Jl. Industri No.1, Jakarta', '021-12345678'),
+(2, 'CV. Kencana Plastik', 'Jl. Raya Kencana No.5, Bandung', '022-87654321'),
+(3, 'UD. Baja Pratama', 'Jl. Baja Utama No.10, Surabaya', '031-5551234'),
+(4, 'PT. Tekstil Nusantara', 'Jl. Sutra No.11, Solo', '0271-2345678'),
+(5, 'PT. Elektronik Global', 'Jl. Elektrik No.21, Bekasi', '021-99887766'),
+(6, 'CV. Fiber Optik Jaya', 'Jl. Telekomunikasi No.45, Tangerang', '021-44556677'),
+(7, 'PT. Kimia Persada', 'Jl. Kimia No.18, Medan', '061-33445566'),
+(8, 'UD. Serat Alam', 'Jl. Serat No.22, Yogyakarta', '0274-99887766'),
+(9, 'PT. Komposit Mandiri', 'Jl. Resin No.9, Semarang', '024-55667788'),
+(10, 'CV. Kaca Mulia', 'Jl. Cermin No.7, Malang', '0341-22334455'),
+(11, 'PT. Baja Ringan', 'Jl. Baja No.13, Palembang', '0711-66778899'),
+(12, 'CV. Tembaga Prima', 'Jl. Logam Mulia No.4, Pekanbaru', '0761-22334455'),
+(13, 'PT. Plastik Utama', 'Jl. Plastik No.14, Cirebon', '0231-44556677'),
+(14, 'UD. Kayu Jati', 'Jl. Kayu No.15, Balikpapan', '0542-55667788'),
+(15, 'CV. Serat Karbon', 'Jl. Komposit No.19, Pontianak', '0561-77889900'),
+(16, 'PT. Logistik Mineral', 'Jl. Mineral No.20, Makassar', '0411-88990011'),
+(17, 'UD. Kain Batik', 'Jl. Sutra No.25, Denpasar', '0361-33445566'),
+(18, 'PT. Polimer Terbaik', 'Jl. Polimer No.30, Manado', '0431-22334455'),
+(19, 'CV. Cat Warna Jaya', 'Jl. Cat No.32, Mataram', '0370-44556677'),
+(20, 'UD. Keramik Nusantara', 'Jl. Keramik No.33, Palu', '0451-55667788'),
+```
+Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/Pemasok.sql
+
+## Insert Data Kedalam Tabel Penggunaaan Bahan Baku
+``` sql
+INSERT INTO Penggunaan_bahan_baku (Id_penggunaan, Id_bahan_baku, Jumlah_penggunaan, Tanggal_penggunaan)
+VALUES
+(1, 1, 50.0, '2024-01-10'),
+(2, 2, 20.0, '2024-01-15'),
+(3, 3, 15.0, '2024-01-18'),
+(4, 4, 10.0, '2024-01-20'),
+(5, 5, 30.0, '2024-01-22'),
+(6, 6, 25.0, '2024-01-25'),
+(7, 7, 12.0, '2024-01-28'),
+(8, 8, 40.0, '2024-02-01'),
+(9, 9, 22.0, '2024-02-05'),
+(10, 10, 18.0, '2024-02-08'),
+(11, 11, 35.0, '2024-02-10'),
+(12, 12, 28.0, '2024-02-12'),
+(13, 13, 40.0, '2024-02-15'),
+(14, 14, 15.0, '2024-02-18'),
+(15, 15, 10.0, '2024-02-20'),
+(16, 16, 8.0, '2024-02-22'),
+(17, 17, 20.0, '2024-02-25'),
+(18, 18, 30.0, '2024-03-01'),
+(19, 19, 22.0, '2024-03-03'),
+(20, 20, 14.0, '2024-03-05'),
+```
+Data selebihnya dapat diakses pada link ini (sql server)  https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/penggunaan%20bahan%20baku.sql
+
+## Insert Data Kedalam Tabel Pelanggan
+``` sql
+INSERT INTO Pelanggan (Id_pelanggan, Nama_pelanggan, Alamat_pelanggan, Telepon_pelanggan, Email_pelanggan, Tanggal_bergabung)
+VALUES
+(1, 'Andi Wijaya', 'Jl. Mawar No.1, Jakarta', '081234567890', 'andi.wijaya@email.com', '2023-01-10'),
+(2, 'Budi Santoso', 'Jl. Melati No.2, Bandung', '081234567891', 'budi.santoso@email.com', '2023-01-15'),
+(3, 'Citra Lestari', 'Jl. Kenanga No.3, Surabaya', '081234567892', 'citra.lestari@email.com', '2023-02-05'),
+(4, 'Dewi Agustina', 'Jl. Anggrek No.4, Medan', '081234567893', 'dewi.agustina@email.com', '2023-02-10'),
+(5, 'Eko Prasetyo', 'Jl. Bougenville No.5, Makassar', '081234567894', 'eko.prasetyo@email.com', '2023-02-18'),
+(6, 'Fitri Handayani', 'Jl. Flamboyan No.6, Semarang', '081234567895', 'fitri.handayani@email.com', '2023-03-01'),
+(7, 'Gilang Saputra', 'Jl. Cempaka No.7, Yogyakarta', '081234567896', 'gilang.saputra@email.com', '2023-03-12'),
+(8, 'Hendra Kurniawan', 'Jl. Tulip No.8, Bali', '081234567897', 'hendra.kurniawan@email.com', '2023-03-15'),
+(9, 'Indah Puspitasari', 'Jl. Dahlia No.9, Balikpapan', '081234567898', 'indah.puspitasari@email.com', '2023-03-22'),
+(10, 'Joko Susanto', 'Jl. Mawar No.10, Palembang', '081234567899', 'joko.susanto@email.com', '2023-04-01'),
+(11, 'Kartika Wulandari', 'Jl. Melati No.11, Batam', '081234567800', 'kartika.wulandari@email.com', '2023-04-05'),
+(12, 'Lutfi Ramadhan', 'Jl. Kenanga No.12, Pontianak', '081234567801', 'lutfi.ramadhan@email.com', '2023-04-10'),
+(13, 'Maya Setiawan', 'Jl. Anggrek No.13, Manado', '081234567802', 'maya.setiawan@email.com', '2023-04-15'),
+(14, 'Nur Hidayat', 'Jl. Bougenville No.14, Ambon', '081234567803', 'nur.hidayat@email.com', '2023-05-01'),
+(15, 'Oki Supriyadi', 'Jl. Flamboyan No.15, Padang', '081234567804', 'oki.supriyadi@email.com', '2023-05-10'),
+```
+Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/pelanggan.sql
+
+## Insert Data Kedalam Tabel Pesanan
+``` sql
+INSERT INTO Pesanan (Id_pesanan, Id_pelanggan, Id_produk, Jumlah, Harga_Total, Tanggal_Pesanan)
+VALUES
+(1, 1, 1, 3, 300.00, '2024-01-15'),
+(2, 2, 2, 5, 1000.00, '2024-01-18'),
+(3, 3, 3, 2, 300.00, '2024-01-20'),
+(4, 4, 4, 1, 250.00, '2024-01-25'),
+(5, 5, 5, 4, 1200.00, '2024-01-28'),
+(6, 6, 6, 3, 630.00, '2024-02-01'),
+(7, 7, 7, 1, 180.00, '2024-02-05'),
+(8, 8, 8, 2, 700.00, '2024-02-08'),
+(9, 9, 9, 3, 1020.00, '2024-02-10'),
+(10, 10, 10, 1, 400.00, '2024-02-12'),
+(11, 11, 11, 5, 625.00, '2024-02-15'),
+(12, 12, 12, 10, 1000.00, '2024-02-18'),
+(13, 13, 13, 2, 120.00, '2024-02-20'),
+(14, 14, 14, 4, 480.00, '2024-02-22'),
+(15, 15, 15, 8, 1280.00, '2024-02-25');
+```
+Data selebihnya dapat diakses pada link ini (sql server) https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/pesanan.sql
