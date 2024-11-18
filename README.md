@@ -323,6 +323,7 @@ ORDER BY
 SELECT 
 	Bahan_baku.Nama_bahan_baku,
 	Bahan_baku.Kategori,
+	Bahan_baku.Stok,
 	Bahan_baku.Status_stok,
 	Jumlah_penggunaan
 FROM
@@ -335,30 +336,39 @@ WHERE
 ORDER BY
 	Jumlah_penggunaan DESC;
 ```
-| Nama_bahan_baku   | Kategori | Status_stok | Jumlah_penggunaan |
-|--------------------|----------|-------------|--------------------|
-| Kulit Sintetis    | Tekstil  | Tersedia    | 38                 |
-| Benang Katun      | Tekstil  | Tersedia    | 36                 |
-| Kain Wol          | Tekstil  | Tersedia    | 30                 |
-| Kain Katun        | Tekstil  | Tersedia    | 19                 |
-| Kapas             | Tekstil  | Tersedia    | 15                 |
+| Nama_bahan_baku   | Kategori | Stok | Status_stok | Jumlah_penggunaan |
+|--------------------|----------|------|-------------|-------------------|
+| Kulit Sintetis    | Tekstil  | 500  | Tersedia    | 43                |
+| Benang Katun      | Tekstil  | 600  | Tersedia    | 36                |
+| Kain Wol          | Tekstil  | 600  | Tersedia    | 30                |
+| Kain Katun        | Tekstil  | 700  | Tersedia    | 19                |
+| Kapas             | Tekstil  | 500  | Tersedia    | 15                |
 
 # Data Manipulation Language (DML) 
-## Mengupdate jumlah penggunaan bahan baku "Kulit Sintetis" bertambah 5
+## Mengupdate jumlah penggunaan bahan baku "Kulit Sintetis" bertambah 5 sehingga "Stok" berkurang 5
 ``` sql
 UPDATE Penggunaan_bahan_baku
-SET Penggunaan_bahan_baku.Jumlah_penggunaan = Penggunaan_bahan_baku.Jumlah_penggunaan +5
+SET 
+	Penggunaan_bahan_baku.Jumlah_penggunaan = Penggunaan_bahan_baku.Jumlah_penggunaan + 5
 FROM Penggunaan_bahan_baku
 INNER JOIN
 	Bahan_baku
 	ON	Penggunaan_bahan_baku.Id_bahan_baku = Bahan_baku.Id_bahan_baku
 WHERE 
 	Nama_bahan_baku = 'Kulit Sintetis';
+--- Update jumlah stok
+UPDATE Bahan_baku
+SET 
+	Stok = Stok - 5
+FROM Bahan_baku
+WHERE 
+	Nama_bahan_baku = 'Kulit Sintetis';
 
 --- Menampilkan hasil update
 SELECT 
 	Bahan_baku.Nama_bahan_baku,
-	Penggunaan_bahan_baku.Jumlah_penggunaan
+	Penggunaan_bahan_baku.Jumlah_penggunaan,
+	Bahan_baku.Stok
 FROM Bahan_baku
 INNER JOIN
 	Penggunaan_bahan_baku
@@ -366,9 +376,9 @@ INNER JOIN
 WHERE 
 	Nama_bahan_baku = 'Kulit Sintetis';
 ```
-| Nama_bahan_baku   | Jumlah_penggunaan |
-|--------------------|-------------------|
-| Kulit Sintetis    | 43                |
+| Nama_bahan_baku   | Jumlah_penggunaan | Stok |
+|--------------------|-------------------|------|
+| Kulit Sintetis    | 48                | 495  |
 
 
 
