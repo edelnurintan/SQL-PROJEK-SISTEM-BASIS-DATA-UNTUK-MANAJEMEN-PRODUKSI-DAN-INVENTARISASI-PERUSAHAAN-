@@ -344,7 +344,7 @@ ORDER BY
 | Kapas             | Tekstil  | Tersedia    | 15                 |
 
 # Data Manipulation Language (DML) 
-## Mengupdate jumlah penggunaan bahan baku kulit sintetis bertambah 5
+## Mengupdate jumlah penggunaan bahan baku "Kulit Sintetis" bertambah 5
 ``` sql
 UPDATE Penggunaan_bahan_baku
 SET Penggunaan_bahan_baku.Jumlah_penggunaan = Penggunaan_bahan_baku.Jumlah_penggunaan +5
