@@ -344,6 +344,38 @@ ORDER BY
 | Kain Katun        | Tekstil  | 700  | Tersedia    | 19                |
 | Kapas             | Tekstil  | 500  | Tersedia    | 15                |
 
+## Menampilkan informasi pesanan pelanggan yang sudah diliris
+```sql
+SELECT
+	Pelanggan.Nama_pelanggan,
+	Pelanggan.Alamat_pelanggan,
+	PRODUKSI.Nama_Produk,
+	PRODUKSI.Stok,
+	PRODUKSI.Status_produksi,
+	Pesanan.Jumlah
+FROM
+	Pesanan
+INNER JOIN
+	Pelanggan
+	ON Pesanan.Id_pelanggan = Pelanggan.Id_pelanggan
+INNER JOIN
+	PRODUKSI
+	ON PRODUKSI.Id_produk = Pesanan.Id_produk
+WHERE
+	PRODUKSI.Status_produksi = 'Sudah Dirilis';
+```
+| Nama_pelanggan    | Alamat_pelanggan           | Nama_Produk    | Stok | Status_produksi | Jumlah |
+|--------------------|----------------------------|----------------|------|-----------------|--------|
+| Budi Santoso      | Jl. Melati No.2, Bandung   | Widget B       | 100  | Sudah Dirilis   | 5      |
+| Citra Lestari     | Jl. Kenanga No.3, Surabaya | Gadget X       | 200  | Sudah Dirilis   | 2      |
+| Fitri Handayani   | Jl. Flamboyan No.6, Semarang| Sensor Z      | 300  | Sudah Dirilis   | 3      |
+| Indah Puspitasari | Jl. Dahlia No.9, Balikpapan| Widget Eco     | 120  | Sudah Dirilis   | 1      |
+| Kartika Wulandari | Jl. Melati No.11, Batam    | Komponen A1    | 1000 | Sudah Dirilis   | 10     |
+| Lutfi Ramadhan    | Jl. Kenanga No.12, Pontianak| Komponen B1   | 800  | Sudah Dirilis   | 5      |
+| Oki Supriyadi     | Jl. Flamboyan No.15, Padang| Sensor Lite    | 250  | Sudah Dirilis   | 8      |
+| ...               | ...                        | ...            | ...  | ...             | ...    |
+
+
 # Data Manipulation Language (DML) 
 ## Mengupdate jumlah penggunaan bahan baku "Kulit Sintetis" bertambah 5 sehingga "Stok" berkurang 5
 ``` sql
