@@ -1,6 +1,8 @@
 # SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-
 Proyek ini adalah sebuah sistem basis data yang dirancang secara mandiri untuk mengelola data operasional perusahaan. Semua dataset, struktur tabel, serta hubungan antar tabel dirancang dan dibuat secara independen dengan tujuan memberikan solusi terintegrasi untuk mengelola informasi terkait produksi, bahan baku, pelanggan, dan pesanan.
 
+![produksi](https://github.com/edelnurintan/SQL-PROJEK-SISTEM-BASIS-DATA-UNTUK-MANAJEMEN-PRODUKSI-DAN-INVENTARISASI-PERUSAHAAN-/blob/main/produksi.png)
+
 # Schema
 ## Membuat Tabel Produksi (Informasi mengenai apa saja yang diproduksi perusahaan)
 ``` sql
