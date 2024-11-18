@@ -317,5 +317,36 @@ ORDER BY
 | 54        | Komponen X1   | 8      |
 | ...       | ...           | ...    |
 
+## Melihat bahan baku yang paling sering digunakan 
+SELECT 
+	Bahan_baku.Nama_bahan_baku,
+	Bahan_baku.Kategori,
+	Bahan_baku.Status_stok,
+	COUNT(DISTINCT Penggunaan_bahan_baku.Id_bahan_baku) as Banyaknya_penggunaan
+FROM
+	Bahan_baku
+LEFT JOIN
+	Penggunaan_bahan_baku
+	ON Bahan_baku.Id_bahan_baku = Penggunaan_bahan_baku.Id_bahan_baku
+GROUP BY
+	Bahan_baku.Nama_bahan_baku,
+	Bahan_baku.Kategori,
+	Bahan_baku.Status_stok
+ORDER BY
+	Banyaknya_penggunaan DESC;
+ | Nama_bahan_baku       | Kategori    | Status_stok | Banyaknya_penggunaan |
+|------------------------|-------------|-------------|-----------------------|
+| Akrilik Lembaran      | Plastik     | Tersedia    | 1                     |
+| Aluminium Batangan    | Logam       | Tersedia    | 1                     |
+| Aluminium Lembaran    | Logam       | Tersedia    | 1                     |
+| Benang Katun          | Tekstil     | Tersedia    | 1                     |
+| Besi Lembaran         | Logam       | Tersedia    | 1                     |
+| Cat Akrilik           | Kimia       | Tersedia    | 1                     |
+| Emas Serbuk           | Logam Mulia | Tersedia    | 1                     |
+| Fiber Optik           | Elektronik  | Tersedia    | 1                     |
+| ...                   | ...         | ...         | ...                   |
+
+
+
 
 
